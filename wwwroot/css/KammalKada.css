@@ -1,0 +1,99 @@
+﻿body {
+}
+
+.btn-nav {
+    border-color: #f08080;
+    margin-right: 10px;
+    color:black;
+}
+
+.btn-nav:hover{
+    background-color: #f08080;
+}
+
+#nav {
+    background-color: #76484D;
+    min-height:100px;
+}
+
+.header__logo {
+    grid-area: logo;
+    max-width: max-content;
+    display: block;
+    position: relative;
+}
+
+.dropdown-style {
+    background-color: white;
+    color: hotpink;
+    opacity: 1 !important;
+    border: 5px solid groove;
+    border-color: #76484D;
+}
+
+.nav-item-text {
+    color: white !important;
+    font-family:'Times New Roman';
+    font-size:18px;
+    display: block;
+    padding: .5rem 1rem;
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-item-text:hover{
+    opacity:0.5;
+}
+
+.nav-item:hover{
+    color:white;
+    opacity:0.5;
+}
+
+#dropdownlist {
+    opacity: 1 !important;
+    color: white;
+    background-color: #CCAEB1;
+}
+
+#dropdownlist:hover {
+    opacity: 1 !important;
+}
+
+.marqueeDiv {
+    background-color: #CCAEB1;
+    color: white;
+    height: 30px;
+}
+
+.items {
+    color: black;
+    background-color: #CCAEB1;
+}
+
+.items:hover{
+    color:white;
+    background-color:#76484D;
+}
+
+.modal {
+    background: green;
+    width: 200px;
+    height: 200px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: none;
+    box-shadow: rgba(0,0,0,0.1) 5px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+#whatsappChatIcon:hover{
+    cursor:pointer;
+}
+
+
+
+
