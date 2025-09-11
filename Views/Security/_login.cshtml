@@ -1,0 +1,18 @@
+﻿@model KammalKada.Models.LoginViewModel
+
+<div class="p-3">
+    @using (Html.BeginForm("Login", "Security", FormMethod.Post, new { id = "loginForm" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Username)
+            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="button" id="btnRegister" class="btn btn-secondary">Register</button>
+    }
+</div>
+

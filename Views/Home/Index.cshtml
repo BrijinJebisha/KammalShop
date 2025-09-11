@@ -1,255 +1,66 @@
-﻿@{
+﻿@model IEnumerable<KammalKada.Models.DataModel.ImageModel>;
+@{
     ViewData["Title"] = "Home Page";
 }
-@* <style>
-    .draggable {
-        position: fixed;
-        inset: auto 16px 16px auto;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        cursor: grab;
-        box-shadow: 0 8px 24px rgba(0,0,0,.2);
-        z-index: 9999;
-        background: #25D366;
-        color: #fff;
-        user-select: none;
-        touch-action: none;
-    }
 
-        .draggable:active {
-            cursor: grabbing;
-        }
-
-        .draggable svg {
-            width: 28px;
-            height: 28px;
-        }
-
-    .chatbox {
-        position: fixed;
-        right: 16px;
-        bottom: 80px;
-        width: 320px;
-        max-width: calc(100vw - 32px);
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 12px 32px rgba(0,0,0,.2);
-        overflow: hidden;
-        z-index: 9998;
-        display: none;
-    }
-
-    .chatbox-header {
-        background: #25D366;
-        color: #fff;
-        padding: 12px 14px;
-        font-weight: 600;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .chatbox-body {
-        height: 280px;
-        padding: 12px;
-        overflow-y: auto;
-        font-size: 14px;
-        background: #f9fafb;
-    }
-
-    .chatbox-input {
-        display: flex;
-        gap: 8px;
-        padding: 10px;
-        border-top: 1px solid #eee;
-        background: #fff;
-    }
-
-        .chatbox-input input {
-            flex: 1;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .chatbox-input button {
-            border: 0;
-            padding: 10px 14px;
-            border-radius: 10px;
-            background: #25D366;
-            color: #fff;
-            font-weight: 600;
-        }
-
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0,0,0,0);
-        white-space: nowrap;
-        border: 0;
-    }
-</style> *@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/KammalKada.css" asp-append-version="true" />
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="~/Scripts/KammalKada.js" asp-append-version="true"></script>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <div style="background-color:green;width:100px;height:100px;border-radius:50%;align-content:center;z-index:1000;position:fixed;bottom:20px;right:20px">
-        <i id = "whatsappChatIcon" class="fab fa-whatsapp" style="font-size:80px;color:white;"></i>
+    <div style="background-color:green;width:80px;height:80px;border-radius:50%;align-content:center;z-index:1000;position:fixed;bottom:10px;right:10px">
+        <i id = "whatsappChatIcon" class="fab fa-whatsapp" style="font-size:60px;color:white;"></i>
     </div>
-    @* <a class="rounded-circle" href="https://wa.me/@ViewBag.contactNumber?text=Hi%20I%20need%20help" target="_blank"
-       style="display: block;justify-self:center; align-content:center; background:#25D366; color:white; padding:10px 10px; width:80px; height:80px;
-          border-radius:50%; text-decoration:none; font-weight:bold;">
-        💬 Chat?
-    </a> *@
-    <p>
-        Article (grammar)
+    <div id="imageCarousel" class="carousel carousel-fade" data-ride="carousel" data-interval="2000" data-pause="hover">
 
-        Article
-        Talk
-        Read
-        Edit
-        View history
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#imageCarousel" data-slide-to="1"></li>
+            <li data-target="#imageCarousel" data-slide-to="2"></li>
+        </ol>
 
-        Tools
-        Appearance hide
-        Text
+        <!-- Carousel images -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Images/Diamond_bangle_for_Girls.jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/Diamond_Earrings.jpg" class="d-block w-100" alt="Image 2" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/Platinum_Diamond_Bangle.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+		</div>
 
-        Small
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
 
-        Standard
-
-        Large
-        Width
-
-        Standard
-
-        Wide
-        Color (beta)
-
-        Automatic
-
-        Light
-
-        Dark
-        From Wikipedia, the free encyclopedia
-        In grammar, an article is any member of a class of dedicated words that are used with noun phrases to mark the identifiability of the referents of the noun phrases. The category of articles constitutes a part of speech.
-
-        Articles combine with nouns to form noun phrases, and typically specify the grammatical definiteness of the noun phrase. In English, the and a (rendered as an when followed by a vowel sound) are the definite and indefinite articles respectively. Articles in many other languages also carry additional grammatical information such as gender, number, and case. Articles are part of a broader category called determiners, which also include demonstratives, possessive determiners, and quantifiers. In linguistic interlinear glossing, articles are abbreviated as ART.
-
-        Types of article
-        Definite article
-        "Definite article" redirects here. For the comedy album, see Definite Article.
-        A definite article is an article that marks a definite noun phrase. Definite articles, such as the English the, are used to refer to a particular member of a group. It may be something that the speaker has already mentioned, or it may be otherwise something uniquely specified.
-
-        For example, Sentence 1 uses the definite article and thus, expresses a request for a particular book. In contrast, Sentence 2 uses an indefinite article and thus, conveys that the speaker would be satisfied with any book.
-
-        Give me the book.
-        Give me a book.
-        The definite article can also be used in English to indicate a specific class among other classes:
-
-        The cabbage white butterfly lays its eggs on members of the Brassica genus.
-        However, recent developments show that definite articles are morphological elements linked to certain noun types due to lexicalization. Under this point of view, definiteness does not play a role in the selection of a definite article more than the lexical entry attached to the article.[clarification needed][1][2]
-
-        Some languages (such as the continental North Germanic languages, Bulgarian or Romanian) have definite articles only as suffixes.
-
-        Indefinite article
-        An indefinite article is an article that marks an indefinite noun phrase. Indefinite articles are those such as English "a" or "an", which do not refer to a specific identifiable entity. Indefinites are commonly used to introduce a new discourse referent which can be referred back to in subsequent discussion:
-
-        A monster ate a cookie. His name is Cookie Monster.
-        Indefinites can also be used to generalize over entities who have some property in common:
-
-        A cookie is a wonderful thing to eat.
-        Indefinites can also be used to refer to specific entities whose precise identity is unknown or unimportant.
-
-        A monster must have broken into my house last night and eaten all my cookies.
-        A friend of mine told me that happens frequently to people who live on Sesame Street.
-        Indefinites also have predicative uses:
-
-        Leaving my door unlocked was a bad decision.
-        Indefinite noun phrases are widely studied within linguistics, in particular because of their ability to take exceptional scope.
-
-        Proper article
-        A proper article indicates that its noun is proper, and refers to a unique entity. It may be the name of a person, the name of a place, the name of a planet, etc. The Māori language has the proper article a, which is used for personal nouns; so, "a Pita" means "Peter". In Māori, when the personal nouns have the definite or indefinite article as an important part of it, both articles are present; for example, the phrase "a Te Rauparaha", which contains both the proper article a and the definite article Te refers to the person name Te Rauparaha.
-
-        The definite article is sometimes also used with proper names, which are already specified by definition (there is just one of them). For example: the Amazon, the Hebrides. In these cases, the definite article may be considered superfluous. Its presence can be accounted for by the assumption that they are shorthand for a longer phrase in which the name is a specifier, i.e. the Amazon River, the Hebridean Islands.[citation needed] Where the nouns in such longer phrases cannot be omitted, the definite article is universally kept: the United States, the People's Republic of China.
-
-        This distinction can sometimes become a political matter: the former usage the Ukraine stressed the word's Russian meaning of "borderlands"; as Ukraine became a fully independent state following the collapse of the Soviet Union, it requested that formal mentions of its name omit the article. Similar shifts in usage have occurred in the names of Sudan and both Congo (Brazzaville) and Congo (Kinshasa); a move in the other direction occurred with The Gambia. In certain languages, such as French and Italian, definite articles are used with all or most names of countries: la France, le Canada, l'Allemagne; l'Italia, la Spagna, il Brasile.
-
-        If a name [has] a definite article, e.g. the Kremlin, it cannot idiomatically be used without it: we cannot say Boris Yeltsin is in Kremlin.
-
-        — R. W. Burchfield[3]
-        Some languages use definite articles with personal names, as in Portuguese (a Maria, literally: "the Maria"), Greek (η Μαρία, ο Γιώργος, ο Δούναβης, η Παρασκευή), and Catalan (la Núria, el/en Oriol). Such usage also occurs colloquially or dialectally in Spanish, German, French, Italian and other languages. In Hungarian, the colloquial use of definite articles with personal names, though widespread, is considered to be a Germanism.
-
-        The definite article sometimes appears in American English nicknames such as "the Donald", referring to current president Donald Trump, and "the Gipper", referring to former president Ronald Reagan.[4]
-
-        Partitive article
-        A partitive article is a type of article, sometimes viewed as a type of indefinite article, used with a mass noun such as water, to indicate a non-specific quantity of it. Partitive articles are a class of determiner; they are used in French and Italian in addition to definite and indefinite articles. (In Finnish and Estonian, the partitive is indicated by inflection.) The nearest equivalent in English is some, although it is classified as a determiner, and English uses it less than French uses de.
-
-        French: Veux-tu du café ?
-        Do you want (some) coffee?
-        For more information, see the article on the French partitive article.
-        Haida has a partitive article (suffixed -gyaa) referring to "part of something or... to one or more objects of a given group or category," e.g., tluugyaa uu hal tlaahlaang "he is making a boat (a member of the category of boats)."[5]
-
-        Negative article
-        A negative article specifies none of its noun, and can thus be regarded as neither definite nor indefinite. On the other hand, some consider such a word to be a simple determiner rather than an article. In English, this function is fulfilled by no, which can appear before a singular or plural noun:
-
-        No man has been on this island.
-        No dogs are allowed here.
-        No one is in the room.
-        In German, the negative article is, among other variations, kein, in opposition to the indefinite article ein.
-
-        Ein Hund – a dog
-        Kein Hund – no dog
-        The equivalent in Dutch is geen:
-
-        een hond – a dog
-        geen hond – no dog
-        Zero article
-        See also: Zero-marking in English
-        The zero article is the absence of an article. In languages having a definite article, the lack of an article specifically indicates that the noun is indefinite. Linguists interested in X-bar theory causally link zero articles to nouns lacking a determiner.[6] In English, the zero article rather than the indefinite is used with plurals and mass nouns, although the word "some" can be used as an indefinite plural article.
-
-        Visitors end up walking in mud.
-        Crosslinguistic variation
-
-        Articles in languages in and around Europe
-        indefinite and definite articles
-        only definite articles
-        indefinite and suffixed definite articles
-        only suffixed definite articles
-        no articles
-        Articles are found in many Indo-European languages, Semitic languages, Polynesian languages, and even language isolates such as Basque; however, they are formally absent from many of the world's major languages including Chinese, Japanese, Korean, Mongolian, Tibetan, many Turkic languages (including Tatar, Bashkir, Tuvan and Chuvash), many Uralic languages (incl. Finnic[a] and Saami languages), Hindi-Urdu, Punjabi, the Dravidian languages (incl. Tamil, Telugu, and Kannada), the Baltic languages, the majority of Slavic languages, the Bantu languages (incl. Swahili). In some languages that do have articles, such as some North Caucasian languages, the use of articles is optional; however, in others like English and German it is mandatory in all cases.
-
-        Linguists believe the common ancestor of the Indo-European languages, Proto-Indo-European, did not have articles. Most of the languages in this family do not have definite or indefinite articles: there is no article in Latin or Sanskrit, nor in some modern Indo-European languages, such as the families of Slavic languages (except for B
-    </p>
-    @* <button id="chat-fab" class="draggable" style="right: 16px; bottom: 16px; background:#111827;" aria-haspopup="dialog" aria-controls="chatbox" aria-expanded="false">
-  <!-- chat icon -->
-        <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
-        <span class="sr-only">Open chat</span>
-    </button> *@
-    @* <a id="wh-fab"
-       class="draggable"
-       aria-label="Chat on WhatsApp"
-       target="_blank"
-       rel="noopener"
-       href="https://wa.me/@ViewBag.contactNumber?text=Hi%20I%20need%20help">
-        <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
-            <path fill="currentColor" d="M19.1 17.7c-.3-.2-1.7-.8-1.9-.9s-.4-.1-.6.1-.7.9-.9 1.1-.3.2-.6.1c-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6c.1-.1.3-.3.4-.5s.2-.3.3-.5c.1-.2 0-.4 0-.5s-.6-1.5-.8-2.1c-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.3 3.9 1.6.7 2.2.8 2.9.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.1-.6-.3zM16 3C9.4 3 4 8.4 4 15c0 2.6.8 4.9 2.1 6.8L5 29l7.4-1.9c1.8 1 3.8 1.6 5.6 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.6c-1.7 0-3.3-.5-4.8-1.3l-.3-.2-4.3 1.1 1.1-4.2-.2-.3C6.6 18.3 6 16.7 6 15 6 9.8 10.8 5 16 5s10 4.8 10 10-4.8 9.6-10 9.6z" />
-        </svg>
-        <span class="sr-only">WhatsApp</span>
-    </a> *@
-</div>
-
+    <div id="overviewContainer" style="margin-top:30px;margin-right:20px;height:auto;overflow-x:scroll;overflow-y:hidden;">
+        @* @Html.PartialAsync("_overview", Model); *@
+        @* @Html.Partial("~/Views/Products/_overview.cshtml") *@
+    </div>
+    
 @section Scripts {
     <script>
         var contactNumber = '@ViewBag.contactNumber';
     </script>
+
+        @* <script src="~/Scripts/KammalKada.js" asp-append-version="true"></script> *@
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @* <script>
+        $(function () {
+            // Load partial from Home/OverView
+            $("#overviewContainer").load("/Home/OverView");
+        });
+    </script> *@
 }
