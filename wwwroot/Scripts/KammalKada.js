@@ -55,7 +55,7 @@
         });
     }
 
-    // ✅ These are now safely inside ready()
+
     $("#login").click(function () {
         $("#modal-body").html($("#loginContent").html());
         $("#modal").css("display", "flex").fadeIn();
