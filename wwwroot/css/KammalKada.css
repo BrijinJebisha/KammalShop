@@ -218,6 +218,35 @@ div::-webkit-scrollbar{
     background: #5E3A3F;
 }
 
+.input-items{
+    margin: 5px;
+    padding:10px;
+}
+
+.input-fields {
+    border: none;
+    background-color: white;
+    width:200px;
+    height: 30px;
+    border-radius:2px;
+}
+
+.input-fields:hover {
+    border: #5E3A3F;
+    background-color:white;
+}
+
+.loginBtn {
+    width: 200px;
+    height: 40px;
+    border-radius:5px;
+    color: white;
+    background-color: #5E3A3F;
+}
+a:hover{
+    cursor:pointer;
+}
+
 
 
 

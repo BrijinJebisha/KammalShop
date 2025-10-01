@@ -1,18 +1,23 @@
 ﻿@model KammalKada.Models.LoginViewModel
 
-<div class="p-3">
+<div class="p-3" >
+    <h1 style="font-size:30px; justify-self: start; margin-left:20px;">Login</h1>
     @using (Html.BeginForm("Login", "Security", FormMethod.Post, new { id = "loginForm" }))
     {
-        <div class="form-group">
-            @Html.LabelFor(m => m.Username)
-            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+        <div class=" input-items">
+            @Html.TextBoxFor(m => m.Username, new { @class = "input-fields ", placeholder="Username" })
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        <div class="form-group input-items">
+            @Html.PasswordFor(m => m.Password, new { @class = "input-fields ", placeholder = "Password" })
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-        <button type="button" id="btnRegister" class="btn btn-secondary">Register</button>
+        <div>
+            <a style="font-size:10px;justify-self:end; padding:10px" asp-controller="Home" asp-action="Index">New User?</a>
+        </div>
+        <div>
+            <button type="submit" class="input-items loginBtn">Login</button>
+        </div>
+        
+        @* <button type="button" id="btnRegister" class="btn btn-secondary input-items" style="background-color:#5E3A3F; border:none;">Register</button> *@
     }
 </div>
 

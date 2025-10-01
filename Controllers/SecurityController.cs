@@ -29,42 +29,64 @@ namespace KammalKada.Controllers
 
 		public async Task<IActionResult> Login( LoginViewModel model)
 		{
-			if(!ModelState.IsValid)
+			try
 			{
-				return RedirectToAction("Error", "Home");
-			}
+				if (!ModelState.IsValid)
+				{
+					return RedirectToAction("Error", "Home");
+				}
 
-			var logindata = new
-			{
-				UserName = model.Username,
-				Password = model.Password
-			};
+				var logindata = new
+				{
+					Email = model.Username,
+					Password = model.Password
+				};
 
-			var data = new StringContent(
-				System.Text.Json.JsonSerializer.Serialize(logindata),
-				Encoding.UTF8,
-				"application/json");
-
-			HttpResponseMessage response = await httpClient.PostAsync("api/User/login",data);
-			if(response.IsSuccessStatusCode)
-			{
-				var user = await response.Content.ReadFromJsonAsync<UserDM>();
 				var claim = new List<Claim>
 				{
-					new Claim(ClaimTypes.Name, user.Name),
-					new Claim(ClaimTypes.Email, user.Email),
-					new Claim(ClaimTypes.MobilePhone, user.PhoneNumber)
+					new Claim(ClaimTypes.Name, model.Username),
+					//new Claim(ClaimTypes.Email, user.EmailId),
+					//new Claim(ClaimTypes.MobilePhone, user.PhoneNumber)
 				};
 
 				var identity = new ClaimsIdentity(claim, CookieAuthenticationDefaults.AuthenticationScheme);
 				var principal = new ClaimsPrincipal(identity);
 
-				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal);
+				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-				return RedirectToAction("Index","Home");
+				return RedirectToAction("Index", "Home");
+
+				//var data = new StringContent(
+				//	System.Text.Json.JsonSerializer.Serialize(logindata),
+				//	Encoding.UTF8,
+				//	"application/json");
+
+				//HttpResponseMessage response = await httpClient.PostAsync("/api/Employee/login", data);
+				//if (response.IsSuccessStatusCode)
+				//{
+				//	var user = await response.Content.ReadFromJsonAsync<UserDM>();
+				//	var claim = new List<Claim>
+				//{
+				//	new Claim(ClaimTypes.Name, user.EmployeeName),
+				//	new Claim(ClaimTypes.Email, user.EmailId),
+				//	new Claim(ClaimTypes.MobilePhone, user.PhoneNumber)
+				//};
+
+				//	var identity = new ClaimsIdentity(claim, CookieAuthenticationDefaults.AuthenticationScheme);
+				//	var principal = new ClaimsPrincipal(identity);
+
+				//	await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+				//	return RedirectToAction("Index", "Home");
+				//}
+
+				//return View();
 			}
-
-			return View();
+			catch(Exception ex)
+			{
+				return RedirectToAction("Error", "Home");
+			}
+			
 		}
 
 		// GET: SecurityController/Details/5

@@ -40,6 +40,10 @@ namespace KammalKada.Controllers
 			return PartialView("_overview", images);
 		}
 
+        public IActionResult Cart()
+        {
+            return View();
+        }
 		public IActionResult Privacy()
         {
             return View();
