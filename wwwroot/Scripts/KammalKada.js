@@ -12,6 +12,16 @@
         $("#dropdownlist").toggle();
     });
 
+    $("#userProfile, #dropdownlist1").hover(
+        function () { $("#dropdownlist1").stop(true, true).show(); },
+        function () { $("#dropdownlist1").stop(true, true).hide(); }
+    );
+
+    $("#userProfile").click(function (e) {
+        e.preventDefault();
+        $("#dropdownlist1").toggle();
+    });
+
     $("#modal").hide();
 
     // Load partial and then bind events

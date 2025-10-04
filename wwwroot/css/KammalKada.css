@@ -47,6 +47,8 @@ div::-webkit-scrollbar{
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
+
+
 .nav-item-text:hover{
     opacity:0.5;
 }
@@ -56,14 +58,21 @@ div::-webkit-scrollbar{
     opacity:0.5;
 }
 
-#dropdownlist {
+#dropdownlist, #dropdownlist1{
     opacity: 1 !important;
     color: white;
     background-color: #CCAEB1;
 }
 
-#dropdownlist:hover {
+.dropdown-menu {
+    //display: block !important; /* or use visibility: visible */
     opacity: 1 !important;
+    z-index: 1000;
+    background-color: #CCAEB1;
+}
+
+#dropdownlist:hover, #dropdownlist1:hover {
+        opacity: 1 !important;
 }
 
 .marqueeDiv {
