@@ -45,6 +45,10 @@
         </a> *@
     </div>
 
+    <div id="itemsContainer" style="margin-top:30px;margin-right:0px;height:auto;overflow-x:scroll;overflow-y:hidden;">
+
+    </div>
+
     <div id="overviewContainer" style="margin-top:30px;margin-right:0px;height:auto;overflow-x:scroll;overflow-y:hidden;">
         @* @Html.PartialAsync("_overview", Model); *@
         @* @Html.Partial("~/Views/Products/_overview.cshtml") *@
@@ -52,9 +56,9 @@
 
     <div class="container" id="container-chat">
         <div id="chatwindow" style="display:none; position:fixed;bottom:100px;right:40px;
-            width:20vw; height:auto; background:none; z-index:1000;border-color:#5E3A3F;border-style:solid;border-radius:10px;">
+            width:20vw;min-width:300px; height:auto; background:none; z-index:1000;border-color:#5E3A3F;border-style:solid;border-radius:10px;">
 
-            <div id="popupBox" style="background:#CCAEB1; padding:10px; border-radius:10px;
+            <div id="popupBox" style="background:#CCAEB1; padding:10px; border-radius:10px;min-width:300px;
                 width:20vw; height:auto; text-align:center; position:relative; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
                 <div id="close1" style="display:flex;justify-self:end; align-items:center; color:white;
                      width:20px;height:20px;background:#5E3A3F;cursor:pointer;border-radius:50%;">
