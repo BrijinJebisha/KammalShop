@@ -27,6 +27,12 @@ namespace KammalKada.Controllers
 			return View();
 		}
 
+		public async Task<IActionResult> Logout()
+		{
+			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+			return RedirectToAction("Index", "Home");
+		}
+
 		public async Task<IActionResult> Login( LoginViewModel model)
 		{
 			try

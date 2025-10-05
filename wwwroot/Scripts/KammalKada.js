@@ -1,26 +1,52 @@
 ﻿$(document).ready(function () {
+    let isDropdownVisible = false;
 
-    // Hover handling
-    $("#earringsDropdown, #dropdownlist").hover(
-        function () { $("#dropdownlist").stop(true, true).show(); },
-        function () { $("#dropdownlist").stop(true, true).hide(); }
-    );
-
-    // Click toggle (for mobile)
     $("#earringsDropdown").click(function (e) {
         e.preventDefault();
-        $("#dropdownlist").toggle();
+
+        if (!isDropdownVisible) {
+            $("#dropdownlist").stop(true, true).slideDown(200);
+            isDropdownVisible = true;
+        } else {
+            $("#dropdownlist").stop(true, true).slideUp(200);
+            isDropdownVisible = false;
+        }
     });
 
-    $("#userProfile, #dropdownlist1").hover(
-        function () { $("#dropdownlist1").stop(true, true).show(); },
-        function () { $("#dropdownlist1").stop(true, true).hide(); }
-    );
+    let isDropdownVisible1 = false;
 
     $("#userProfile").click(function (e) {
         e.preventDefault();
-        $("#dropdownlist1").toggle();
+
+        if (!isDropdownVisible1) {
+            $("#dropdownlist1").stop(true, true).slideDown(200);
+            isDropdownVisible1 = true;
+        } else {
+            $("#dropdownlist1").stop(true, true).slideUp(200);
+            isDropdownVisible1 = false;
+        }
     });
+    // Hover handling
+    //$("#earringsDropdown, #dropdownlist").hover(
+    //    function () { $("#dropdownlist").stop(true, true).show(); },
+    //    function () { $("#dropdownlist").stop(true, true).hide(); }
+    //);
+
+    //// Click toggle (for mobile)
+    //$("#earringsDropdown").click(function (e) {
+    //    e.preventDefault();
+    //    $("#dropdownlist").toggle();
+    //});
+
+    //$("#userProfile, #dropdownlist1").hover(
+    //    function () { $("#dropdownlist1").stop(true, true).show(); },
+    //    function () { $("#dropdownlist1").stop(true, true).hide(); }
+    //);
+
+    //$("#userProfile").click(function (e) {
+    //    e.preventDefault();
+    //    $("#dropdownlist1").toggle();
+    //});
 
     $("#modal").hide();
 
@@ -79,10 +105,28 @@
         $("#modal").fadeOut();
     });
 
+    //$("#whatsappChatIcon").click(function () {
+    //    window.open("https://wa.me/" + contactNumber + "?text=Hi%20I%20need%20help", "_blank");
+    //});
+
     $("#whatsappChatIcon").click(function () {
-        window.open("https://wa.me/" + contactNumber + "?text=Hi%20I%20need%20help", "_blank");
+        $("#chatwindow").css("display", "flex").fadeIn();
+    });
+    $("#close1").click(function () {
+        $("#chatwindow").fadeOut();
     });
 
+    $("#btnSend").click(function () {
+        var message = $("#querybox").val().trim();
+        if (message === "") {
+            alert("Please enter a message!");
+        }
+        else {
+            window.open(`https://wa.me/${contactNumber}?text=${encodeURIComponent(message)}`, "_blank");
+            $("#chatwindow").fadeOut();
+        }
+        
+    });
 });
 
 //$(document).ready(function () {

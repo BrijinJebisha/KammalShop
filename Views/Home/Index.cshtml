@@ -11,7 +11,7 @@
 <script src="~/Scripts/KammalKada.js" asp-append-version="true"></script>
 
 <div class="text-center">
-    <div style="background-color:green;width:50px;height:50px;border-radius:50%;align-content:center;z-index:1000;position:fixed;bottom:40px;right:40px">
+    <div style="background-color:#5E3A3F;width:50px;height:50px;border-radius:50%;align-content:center;z-index:1000;position:fixed;bottom:40px;right:40px">
         <i id = "whatsappChatIcon" class="fab fa-whatsapp" style="font-size:40px;color:white;"></i>
     </div>
     <div id="imageCarousel" class="carousel carousel-fade" data-ride="carousel" data-interval="2000" data-pause="hover">
@@ -48,6 +48,25 @@
     <div id="overviewContainer" style="margin-top:30px;margin-right:0px;height:auto;overflow-x:scroll;overflow-y:hidden;">
         @* @Html.PartialAsync("_overview", Model); *@
         @* @Html.Partial("~/Views/Products/_overview.cshtml") *@
+    </div>
+
+    <div class="container" id="container-chat">
+        <div id="chatwindow" style="display:none; position:fixed;bottom:100px;right:40px;
+            width:20vw; height:auto; background:none; z-index:1000;border-color:#5E3A3F;border-style:solid;border-radius:10px;">
+
+            <div id="popupBox" style="background:#CCAEB1; padding:10px; border-radius:10px;
+                width:20vw; height:auto; text-align:center; position:relative; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+                <div id="close1" style="display:flex;justify-self:end; align-items:center; color:white;
+                     width:20px;height:20px;background:#5E3A3F;cursor:pointer;border-radius:50%;">
+                    <i class="fa fa-close"></i>
+                </div>
+                <div id="modal-body" style="display:flex;flex-direction:column;justify-content:center;margin:20px">
+                    <h6 style="align-self:flex-start;">Hi! How can I Help You?</h6>
+                    <textarea id="querybox" style="border: 2px solid #5E3A3F; border-radius: 5px;min-height:100px;" placeholder="Enter your query here!!"></textarea>
+                    <button id="btnSend" style="margin-top:20px;border: 2px solid #5E3A3F;color:white; background-color:#5E3A3F; border-radius: 5px;" type="submit">Send</button>
+                </div>
+            </div>
+        </div>
     </div>
     
 @section Scripts {

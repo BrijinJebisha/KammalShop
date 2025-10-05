@@ -11,7 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header style="background-color:#5E3A3F;">
         <div class="marqueeDiv">
             <marquee>Free Delivery for selected items...</marquee>
         </div>
@@ -75,7 +75,7 @@
                                     <ul class="dropdown-menu dropdown-style" aria-labelledby="userProfile" id="dropdownlist1" style="z-index:2000;opacity:1;display:none;">
                                         <li><a class="dropdown-item items" asp-area="" asp-controller="Home" asp-action="Index">Profile</a></li>
                                         <li><a class="dropdown-item items" asp-area="" asp-controller="Home" asp-action="Index">Settings</a></li>
-                                        <li><a class="dropdown-item items" asp-area="" asp-controller="Home" asp-action="Index">Logout</a></li>
+                                        <li><a class="dropdown-item items" asp-area="" asp-controller="Security" asp-action="Logout">Logout</a></li>
                                     </ul>
                                 </li>
                                 @* <div class="dropdown">
@@ -167,7 +167,7 @@
         @Html.Partial("~/Views/Security/_register.cshtml")
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color:#5E3A3F;">
         <div class="container">
             &copy; 2025 - KammalKada - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
